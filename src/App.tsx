@@ -1,14 +1,28 @@
 import React from 'react';
+import styled from 'styled-components';
 import logo from './logo.svg';
-import './App.css';
+
+const CodeBlock = styled.code`
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+`;
+
+const AppWrapper = styled.div`
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+`;
 
 const App: React.FC = () => (
-  <div className="App">
+  <AppWrapper>
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <p>
         Edit
-        <code>src/App.tsx</code>
+        <CodeBlock>src/App.tsx</CodeBlock>
         and save to reload.
       </p>
       <a
@@ -20,7 +34,7 @@ const App: React.FC = () => (
         Learn React
       </a>
     </header>
-  </div>
+  </AppWrapper>
 );
 
 export default App;
