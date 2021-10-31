@@ -1,11 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from './logo.svg';
-
-const CodeBlock = styled.code`
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-`;
 
 const AppWrapper = styled.div`
   margin: 0;
@@ -16,25 +10,6 @@ const AppWrapper = styled.div`
   -moz-osx-font-smoothing: grayscale;
 `;
 
-const App: React.FC = () => (
-  <AppWrapper>
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Edit
-        <CodeBlock>src/App.tsx</CodeBlock>
-        and save to reload.
-      </p>
-      <a
-        className="App-link"
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
-  </AppWrapper>
-);
+const App: React.FC = () => <h1>Operator</h1>;
 
 export default App;
