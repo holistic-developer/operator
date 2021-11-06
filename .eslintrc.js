@@ -27,6 +27,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'import/no-cycle': 'off',
     'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
     'no-use-before-define': 'off',
     'prettier/prettier': ['error'],
