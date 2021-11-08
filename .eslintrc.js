@@ -25,6 +25,7 @@ module.exports = {
       'ignorePackages',
       {
         tsx: 'never',
+        ts: 'never',
       },
     ],
     'import/no-cycle': 'off',

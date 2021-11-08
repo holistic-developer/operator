@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const letterMeanDelayMs = 50;
+const letterMeanDelayMs = 80;
 const letterDelyDeviation = 30;
 
 const useTypedText = (text: string, type = true): [string, boolean] => {
@@ -10,7 +10,7 @@ const useTypedText = (text: string, type = true): [string, boolean] => {
     if (type && terminalOutput.length < text.length) {
       setTimeout(() => {
         setTerminalOutput(terminalOutput + text.charAt(terminalOutput.length));
-      }, Math.sign(Math.random() - 0.5) * Math.random() * letterDelyDeviation + letterMeanDelayMs);
+      }, Math.random() * (2 * letterDelyDeviation) + (letterMeanDelayMs - letterDelyDeviation));
     }
   }, [terminalOutput, setTerminalOutput, type]);
   return [terminalOutput, terminalOutput.length === text.length];

@@ -1,7 +1,7 @@
 import React from 'react';
 import { atomWithStorage, useAtomValue } from 'jotai/utils';
-import IntroStage from './IntroStage';
-import FirstStage from './FirstStage';
+import IntroStage from '../stages/IntroStage';
+import FirstStage from '../stages/FirstStage';
 
 // eslint-disable-next-line no-shadow
 export enum Stage {
