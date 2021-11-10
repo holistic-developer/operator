@@ -1,19 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
-const letterMeanDelayMs = 80;
-const letterDelyDeviation = 30;
+const defaultCharacterDelay = 60;
 
-const useTypedText = (text: string, type = true): [string, boolean] => {
+const useTypedText = (
+  text: string,
+  start = true,
+  characterDelay = defaultCharacterDelay,
+): [string, boolean] => {
   const [terminalOutput, setTerminalOutput] = useState('');
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const input = useMemo(() => text, []);
   useEffect(() => {
-    if (type && terminalOutput.length < text.length) {
+    if (start && terminalOutput.length < input.length) {
       setTimeout(() => {
-        setTerminalOutput(terminalOutput + text.charAt(terminalOutput.length));
-      }, Math.random() * (2 * letterDelyDeviation) + (letterMeanDelayMs - letterDelyDeviation));
+        setTerminalOutput(
+          terminalOutput.concat(input.charAt(terminalOutput.length)),
+        );
+      }, characterDelay);
     }
-  }, [terminalOutput, setTerminalOutput, type]);
-  return [terminalOutput, terminalOutput.length === text.length];
+  }, [setTerminalOutput, terminalOutput, characterDelay, input, start]);
+  return [terminalOutput, terminalOutput.length === input.length];
 };
 
 export default useTypedText;

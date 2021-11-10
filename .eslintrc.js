@@ -8,6 +8,7 @@ module.exports = {
     'plugin:import/typescript', // this is needed because airbnb uses eslint-plugin-import
     'plugin:@typescript-eslint/recommended',
     'prettier',
+    'plugin:react-hooks/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {

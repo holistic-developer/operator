@@ -7,9 +7,12 @@ const AppWrapper = styled.div`
   position: absolute;
   width: 100vw;
   height: 100vh;
-  font-family: Hack, monospace;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+  * {
+    font-family: Hack, monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
   background: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.foreground};
