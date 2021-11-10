@@ -4,9 +4,10 @@ import StageRouter from './components/StageRouter';
 import theme from './theme';
 
 const AppWrapper = styled.div`
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
+  margin: auto;
+  width: clamp(50vw, 30em, 100vw);
+  display: flex;
+  flex-direction: column;
 
   * {
     font-family: Hack, monospace;

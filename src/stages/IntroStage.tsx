@@ -1,21 +1,24 @@
 import { useUpdateAtom } from 'jotai/utils';
 import React from 'react';
-import styled from 'styled-components';
 import { Stage, stageAtom } from '../components/StageRouter';
 import useTypedText from '../components/TypedText';
 import theme from '../theme';
 import randomInt from '../utils';
 
-const Wrapper = styled.div`
-  margin: auto;
-  width: clamp(50vw, 30em, 100vw);
-  display: flex;
-  flex-direction: column;
-`;
-
 const errors = [
   'Unexpected exception from EarthUplinkService',
-  'Solar radiaton exceeding maximum allowed threshold',
+  'Solar radiaton close to lethal threshold',
+  'Ion shield power failure',
+  'Telemetry heartbeat signal timed out',
+  'Engine temperature out of bounds',
+  'Main bus B undervoltage',
+  'Failed to reboot from backup',
+  'Memory corruption detected',
+  'Failover not responding',
+  'Connection to auxiliary systems down',
+  'Core temperature limit exceeded',
+  'Hull breach detected',
+  'Leak detected in human cryo storage module',
 ];
 
 const IntroStage: React.FC = () => {
@@ -40,15 +43,15 @@ const IntroStage: React.FC = () => {
     errors[randomInt(0, errors.length - 1)],
     errorCodeDone,
   );
-  const [loadingDots, loadingDotsDone] = useTypedText('...', errorDone, 1000);
-  const [prompt, promptDone] = useTypedText('>', loadingDotsDone, 1000);
+  const [loadingDots, loadingDotsDone] = useTypedText('...', errorDone, 500);
+  const [prompt, promptDone] = useTypedText('>', loadingDotsDone, 500);
   const [command] = useTypedText(
     'systemctl restart autopilot.service',
     promptDone,
   );
 
   return (
-    <Wrapper>
+    <>
       <h1>{header}</h1>
       <p>{call2Action}</p>
       <p>{processCrashed}</p>
@@ -64,7 +67,7 @@ const IntroStage: React.FC = () => {
             margin: 0,
             padding: 0,
             paddingTop: '1rem',
-            paddingBottom: '1rem',
+            paddingBottom: '3rem',
             textAlign: 'left',
             fontSize: '1rem',
             cursor: 'pointer',
@@ -77,7 +80,7 @@ const IntroStage: React.FC = () => {
           <span>{command}</span>
         </button>
       )}
-    </Wrapper>
+    </>
   );
 };
 
