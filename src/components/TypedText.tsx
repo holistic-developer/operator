@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 
-const defaultCharacterDelay = 60;
+const defaultCharacterDelay = 40;
 
 const useTypedText = (
   text: string,
