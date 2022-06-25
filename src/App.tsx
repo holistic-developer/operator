@@ -10,6 +10,7 @@ const AppWrapper = styled.div`
   flex-direction: column;
 
   * {
+    font-size: medium;
     font-family: Hack, monospace;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
